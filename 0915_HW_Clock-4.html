@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock-TW/JP/KR/TH</title>
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yrsa:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--icon  -->
+    <link rel="stylesheet" href="./CSS/all.css" />
+    <!-- animation -->
+    <link rel="stylesheet" href="./CSS/animate.min.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: "Roboto Mono", monospace;
+        text-shadow: lightgray;
+      }
+
+      span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: none;
+      }
+      span:target {
+        display: block;
+      }
+
+      .flag1 {
+        display: inline-block;
+        position: absolute;
+        top: 85%;
+        left: 42%;
+        padding: 3px;
+        z-index: 999;
+      }
+
+      /* 各國背景圖 */
+      .TW {
+        width: 100%;
+        height: 100%;
+        background-size: 105%;
+        background-repeat: no-repeat;
+        background-image: url(./images/taiwan-3973014_1920.jpg);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        animation: animationbg 5s alternate infinite ease-in-out;
+      }
+
+      .JP {
+        width: 100%;
+        height: 100%;
+        background-size: 105%;
+        background-repeat: no-repeat;
+        background-image: url(./images/japan-bg.jpeg);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        animation: animationbg 4s alternate infinite ease-in-out;
+      }
+
+      .KR {
+        width: 100%;
+        height: 100%;
+        background-size: 105%;
+        background-repeat: no-repeat;
+        background-image: url(./images/seoul4.jpg);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        animation: animationbg 4s alternate infinite ease-in-out;
+      }
+
+      .TL {
+        width: 100%;
+        height: 100%;
+        background-size: 105%;
+        background-repeat: no-repeat;
+        background-image: url(./images/bangkok2.jpg);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        animation: animationbg 4s alternate infinite ease-in-out;
+      }
+
+      @keyframes animationbg {
+        from {
+          background-position: 1% 0%;
+        }
+        50% {
+          background-position: 5% 0%;
+        }
+        to {
+          background-position: 10% 0%;
+        }
+      }
+      /* 台北時鐘 */
+      #clock {
+        font-family: "Monoton", cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.3);
+        border: 6px rgba(86, 108, 115, 0.3) solid;
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        position: relative;
+        top: 40%;
+        left: 50%;
+      }
+      #hour {
+        position: absolute;
+        height: 8px;
+        width: 20%;
+        background: rgba(37, 83, 89, 1);
+        box-shadow: 0 0 5px 5px rgba(37, 83, 89, 0.5);
+        border: 1px solid rgba(37, 83, 89, 0.3);
+        border-radius: 5px;
+        left: 30%;
+        top: calc(50% - 4px);
+        transform: rotate(0deg);
+        /* 設定旋轉的定位點 */
+        transform-origin: right center;
+      }
+      #minute {
+        position: absolute;
+        height: 8px;
+        width: 30%;
+        background: rgba(51, 103, 116, 0.8);
+        box-shadow: 0 0 5px 5px rgba(51, 103, 116, 0.5);
+        border: 1px solid rgba(51, 103, 116, 0.3);
+        border-radius: 5px;
+        left: 20%;
+        top: calc(50% - 4px);
+        transform: rotate(0deg);
+        transform-origin: right center;
+      }
+      #second {
+        position: absolute;
+        height: 8px;
+        width: 40%;
+        background: rgba(55, 107, 109, 0.3);
+        box-shadow: 0 0 5px 5px rgba(55, 107, 109, 0.5);
+        border: 1px solid rgba(55, 107, 109, 0.3);
+        border-radius: 5px;
+        left: 10%;
+        top: calc(50% - 4px);
+        transform: rotate(0deg);
+        transform-origin: right center;
+      }
+      #time {
+        display: inline-block;
+        text-align: center;
+      }
+
+      #date {
+        font-family: "Londrina Shadow", cursive;
+        display: inline-block;
+        width: 400px;
+        font-size: 80px;
+        /* font-weight: bold; */
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        color: rgba(79, 79, 72, 0.8);
+        position: absolute;
+        left: 39%;
+        top: 10%;
+        margin: 10px 10px;
+      }
+
+      /* 各國時間 */
+      #JP {
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 18%;
+      }
+
+      #KR {
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 18%;
+      }
+
+      #TL {
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 18%;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .number {
+        color: rgba(33, 30, 85, 0.8);
+        font-size: 36px;
+      }
+
+      .timebox {
+        display: inline-block;
+        font-family: "Chewy", cursive;
+        width: 360px;
+        font-size: 60px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 15px;
+        text-align: center;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        color: white;
+        position: relative;
+        top: 350px;
+        left: 40%;
+        /* transform: translate(-50%, -350%); */
+        padding: 0.5rem 1rem;
+      }
+
+      .timebox2 {
+        /* display: inline-block; */
+        font-family: "Chewy", cursive;
+        width: 400px;
+        height: 150px;
+        font-size: 70px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 15px;
+        text-align: center;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        color: white;
+        position: relative;
+        top: 400px;
+        left: 37%;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        margin: 30px;
+      }
+
+      .timebox2 img {
+        position: absolute;
+        top: 10%;
+        left: 42%;
+      }
+
+      .flag1 a:hover {
+        cursor: pointer;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))
+          drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        transform: scale(1.05);
+      }
+
+      .ori_bg {
+        background: url(./images/2017_July15.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ori_bg">
+      <div id="flag" class="flag1">
+        <a href="#TWimg"><img src="./images/Taiwan.png" alt="" /></a>
+        <a href="#JPimg"><img src="./images/Japan.png" alt="" /></a>
+        <a href="#KRimg"><img src="./images/Korea,-South.png" alt="" /></a>
+        <a href="#TLimg"><img src="./images/Thailand.png" alt="" /></a>
+      </div>
+      <span id="TWimg"
+        ><div class="TW">
+          <!-- 時鐘 -->
+          <div id="date">123</div>
+          <div id="clock">
+            <div id="hour"></div>
+            <div id="minute"></div>
+            <div id="second"></div>
+            <!-- 刻度 -->
+            <div>
+              <div
+                class="number"
+                style="position: absolute; top: 3%; left: 43%"
+              >
+                12
+              </div>
+              <div
+                class="dot"
+                style="position: absolute; top: 1%; left: 49%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 8%; left: 73%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 25%; left: 90%"
+              ></div>
+              <div
+                class="number"
+                style="position: absolute; top: 42%; left: 85%"
+              >
+                3
+              </div>
+              <div
+                class="dot"
+                style="position: absolute; top: 50%; left: 96%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 73%; left: 89%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 89%; left: 72%"
+              ></div>
+              <div
+                class="number"
+                style="position: absolute; top: 79%; left: 46%"
+              >
+                6
+              </div>
+              <div
+                class="dot"
+                style="position: absolute; top: 96%; left: 49%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 73%; left: 8%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 89%; left: 25%"
+              ></div>
+              <div
+                class="number"
+                style="position: absolute; top: 42%; left: 8%"
+              >
+                9
+              </div>
+              <div
+                class="dot"
+                style="position: absolute; top: 50%; left: 1%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 8%; left: 25%"
+              ></div>
+              <div
+                class="dot"
+                style="position: absolute; top: 25%; left: 8%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- TW時間 -->
+          <div class="timebox">
+            <img src="./images/Taiwan.png" />
+            <div
+              class="animate__animated animate__pulse animate__infinite animate__slower"
+              id="time"
+            ></div>
+          </div></div
+      ></span>
+      <span id="JPimg"
+        ><div class="JP">
+          <div class="timebox2" style="background: rgba(119, 150, 154, 0.4)">
+            <img src="./images/Japan.png" />
+            <div
+              id="JP"
+              class="animate__animated animate__pulse animate__infinite animate__slower"
+            ></div>
+          </div></div
+      ></span>
+      <span id="KRimg"
+        ><div class="KR">
+          <div class="timebox2" style="background: rgba(180, 165, 130, 0.4)">
+            <img src="./images/Korea,-South.png" />
+            <div
+              id="KR"
+              class="animate__animated animate__pulse animate__infinite animate__slower"
+            ></div>
+          </div></div
+      ></span>
+      <span id="TLimg"
+        ><div class="TL">
+          <div class="timebox2" style="background: rgba(165, 160, 81, 0.4)">
+            <img src="./images/Thailand.png" />
+            <div
+              id="TL"
+              class="animate__animated animate__pulse animate__infinite animate__slower"
+            ></div>
+          </div></div
+      ></span>
+
+      <!-- 各國時間 -->
+    </div>
+
+    <script>
+      const date = document.getElementById("date");
+      const hour = document.getElementById("hour");
+      const minute = document.getElementById("minute");
+      const second = document.getElementById("second");
+      const time = document.getElementById("time");
+      const JP = document.getElementById("JP");
+      const KR = document.getElementById("KR");
+      const TL = document.getElementById("TL");
+
+      //   為了解決進入頁面延遲一秒後才開始，先寫 function 後再用計時器
+      const setClock = () => {
+        let now = new Date();
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+        let year = now.getFullYear();
+        let month = now.getMonth();
+        let day = now.getDate();
+        // 台北時間
+        // 360度 / 12小時 = 30度/小時，因為 0 度是水平，所以要再加 90度
+        hour.style.transform = `rotate(${h * 30 + 90}deg)`;
+        // 360度 / 60分鐘 = 6度/分鐘
+        minute.style.transform = `rotate(${m * 6 + 90}deg)`;
+        // 360度 / 60秒 = 6度/秒
+        second.style.transform = `rotate(${s * 6 + 90}deg)`;
+        date.innerText = `${year} / ${month} / ${day}`;
+        time.innerText = `  ${h} : ${m} : ${s}`;
+        JP.innerText = ` ${h + 1} : ${m} : ${s}`;
+        KR.innerText = ` ${h + 1} : ${m} : ${s}`;
+        TL.innerText = ` ${h - 1} : ${m} : ${s}`;
+      };
+
+      setInterval(setClock, 1000);
+      setClock();
+    </script>
+  </body>
+</html>
