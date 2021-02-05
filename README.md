@@ -6,5 +6,5 @@
 若使用 GitHub 網頁進行 commit 會依次數扣分
 
 --------------------------------------------
-2021/2/5
-## 更新版： HERE：[Clock ⏰](https://github.com/ellallu0903/js-clock)
+# 2021/2/5
+## 更新版： HERE ▶ [Clock ⏰](https://github.com/ellallu0903/js-clock)
